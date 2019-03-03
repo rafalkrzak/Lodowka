@@ -1,6 +1,6 @@
 ﻿namespace Lodowka
 {
-    partial class Form1
+    partial class Lodowka
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Lodowka));
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -107,7 +108,7 @@
             this.label3.Size = new System.Drawing.Size(0, 13);
             this.label3.TabIndex = 7;
             // 
-            // Form1
+            // Lodowka
             // 
             this.ClientSize = new System.Drawing.Size(523, 454);
             this.Controls.Add(this.label3);
@@ -118,7 +119,8 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "Lodowka";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

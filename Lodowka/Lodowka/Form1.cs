@@ -11,20 +11,39 @@ using System.Data.SqlClient;
 
 namespace Lodowka
 {
-    public partial class Form1 : Form
+    public partial class Lodowka : Form
     {
         
-        public Form1()
+        public Lodowka()
         {
             InitializeComponent();
         }
-        
-        private void button1_Click(object sender, EventArgs e)
+
+        public SqlConnection setup()
         {
-            String connectionString = @"Data Source=WIN-FS0LQTD1JSG\SQLEXPRESS;Initial Catalog=Lodowka;Integrated Security=True";
+            //string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            //string path = (System.IO.Path.GetDirectoryName(executable));
+            String connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\Database1.mdf;Integrated Security=True;Connect Timeout=30";
+
+            //String connectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = C:\Program Files (x86)\Lodowka\Lodowka\Database1.mdf; Integrated Security = True; Connect Timeout = 30";
+            
+            //String connectionString = @"Data Source=WIN-FS0LQTD1JSG\SQLEXPRESS;Initial Catalog=Lodowka;Integrated Security=True";
             SqlConnection sqlcn = new SqlConnection();
             sqlcn.ConnectionString = connectionString;
-            
+            return sqlcn;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //String dd = AppDomain.CurrentDomain.GetData("DataDirectory").ToString();
+            //Console.WriteLine(dd);
+            //string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            //Console.WriteLine(executable);
+            //string path = (System.IO.Path.GetDirectoryName(executable));
+            //Console.WriteLine(path);
+            //AppDomain.CurrentDomain.SetData("DataDirectory", executable);
+            //Console.WriteLine(AppDomain.CurrentDomain.GetData("DataDirectory"));
+            SqlConnection sqlcn = setup();
             String q = "select * from Produkt";
             DataSet ds = new DataSet();
             sqlcn.Open();
@@ -37,10 +56,7 @@ namespace Lodowka
 
         private void button2_Click(object sender, EventArgs e)
         {
-            String connectionString = @"Data Source=WIN-FS0LQTD1JSG\SQLEXPRESS;Initial Catalog=Lodowka;Integrated Security=True";
-            SqlConnection sqlcn = new SqlConnection();
-            sqlcn.ConnectionString = connectionString;
-
+            SqlConnection sqlcn = setup();
             int id;
             String name;
             if (!Int32.TryParse(textBox1.Text, out id))
@@ -71,3 +87,4 @@ namespace Lodowka
         }
     }
 }
+ 
